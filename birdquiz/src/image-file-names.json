@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Knölsvan",
+    "imageFilePath": "./images/knolsvan.jpg"
+  },
+  {
+    "name": "Storlom",
+    "imageFilePath": "./images/storlom.jpg"
+  },
+  {
+    "name": "Rödhalsad gås",
+    "imageFilePath": "./images/rodhalsadgas.jpg"
+  },
+  {
+    "name": "Prutgås",
+    "imageFilePath": "./images/prutgas.jpg"
+  },
+  {
+    "name": "Vitkindad gås",
+    "imageFilePath": "./images/vitkindadgas.jpg"
+  },
+  {
+    "name": "Kanadagås",
+    "imageFilePath": "./images/kanadagas.jpg"
+  },
+  {
+    "name": "Grågås",
+    "imageFilePath": "./images/gragas.jpg"
+  },
+  {
+    "name": "Fjällgås",
+    "imageFilePath": "./images/fjallgas.jpg"
+  },
+  {
+    "name": "Bläsgås",
+    "imageFilePath": "./images/blasgas.jpg"
+  },
+  {
+    "name": "Spetsbergsgås",
+    "imageFilePath": "./images/spetsbergsgas.jpg"
+  },
+  {
+    "name": "Sädgås",
+    "imageFilePath": "./images/sadgas.jpg"
+  },
+  {
+    "name": "Mindre sångsvan",
+    "imageFilePath": "./images/mindrasangsvan.jpg"
+  },
+  {
+    "name": "Sångsvan",
+    "imageFilePath": "./images/sangsvan.jpg"
+  }
+]
