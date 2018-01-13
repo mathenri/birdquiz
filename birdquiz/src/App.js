@@ -42,6 +42,7 @@ class App extends Component {
     const nextBird = imageFilePaths[Math.floor(Math.random() * imageFilePaths.length)];
 
     this.setState({
+      usersAnswer: '',
       correctAnswer: nextBird.name,
       currentBirdImageFilePath: nextBird.imageFilePath
     });
