@@ -30,7 +30,7 @@ class App extends Component {
     if (this.state.usersAnswer === this.state.correctAnswer) {
       alert('Answer ' + this.state.usersAnswer + ' is correct!');
     } else {
-      alert('Answer ' + this.state.usersAnswer + ' is incorrect!');
+      alert('Answer ' + this.state.usersAnswer + ' is incorrect! The correct answer is ' + this.state.correctAnswer);
     }
 
     this.genereateNewBird();
