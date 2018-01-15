@@ -43,13 +43,18 @@ class App extends Component {
   }
 
   genereateNewBird() {
-    const nextBird = imageFilePaths[Math.floor(Math.random() * imageFilePaths.length)];
+    if (imageFilePaths.length === 0) {
+      alert("Quizet är klart!");
+    } else {
+      const nextBirdIndex = Math.floor(Math.random() * imageFilePaths.length);
+      const nextBird = imageFilePaths.splice(nextBirdIndex, 1)[0];
 
-    this.setState({
-      usersAnswer: '',
-      correctAnswer: nextBird.name,
-      currentBirdImageFilePath: nextBird.imageFilePath
-    });
+      this.setState({
+        usersAnswer: '',
+        correctAnswer: nextBird.name,
+        currentBirdImageFilePath: nextBird.imageFilePath
+      });
+    }
   }
 
   render() {
