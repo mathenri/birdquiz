@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       usersAnswer: '',
       correctAnswer: 'Storlom',
-      currentBirdImageFilePath: './images/first.png'
+      currentBirdImageFilePath: './images/first.png',
+      nrCorrectAnswers: 0
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,6 +30,9 @@ class App extends Component {
   handleSubmit(e) {
     if (this.state.usersAnswer === this.state.correctAnswer) {
       alert('Answer ' + this.state.usersAnswer + ' is correct!');
+      this.setState({
+        nrCorrectAnswers: this.state.nrCorrectAnswers + 1
+      });
     } else {
       alert('Answer ' + this.state.usersAnswer + ' is incorrect! The correct answer is ' + this.state.correctAnswer);
     }
@@ -73,6 +77,9 @@ class App extends Component {
             </FormGroup>{' '}
             <Button type="submit" bsStyle="success">OK</Button>
           </Form>
+        </div>
+        <div>
+          Antal rätt: {this.state.nrCorrectAnswers}
         </div>
 
         <hr />
