@@ -56,7 +56,7 @@ class App extends Component {
           <h1>Fågelquiz</h1>
           <p>Välkommen till Fågelquiz! Arta fåglar och få poäng.</p>
           <p>
-            <Button bsStyle="primary" onClick={this.genereateNewBird}>Nytt quiz</Button>
+            <Button bsStyle="primary" onClick={this.genereateNewBird}>Starta quiz</Button>
           </p>
         </Jumbotron>
         <div className="content-container center-block">
@@ -65,13 +65,13 @@ class App extends Component {
         <div className="form-container center-block">
           <Form inline onSubmit={this.handleSubmit}>
             <FormGroup controlId="answerControl">
-              <ControlLabel>Answer:</ControlLabel>{' '}
+              <ControlLabel>Svar:</ControlLabel>{' '}
               <FormControl type="text"
                  value={this.state.usersAnswer} 
-                 placeholder="Bird name"
+                 placeholder="Fågelnamn"
                  onChange={this.handleChange}/>
             </FormGroup>{' '}
-            <Button type="submit" bsStyle="success">Submit</Button>
+            <Button type="submit" bsStyle="success">OK</Button>
           </Form>
         </div>
 
