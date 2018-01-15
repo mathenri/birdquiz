@@ -1,3 +1,9 @@
 .content-container {
   max-width: 800px;
 }
+
+.form-container {
+  max-width: 800px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

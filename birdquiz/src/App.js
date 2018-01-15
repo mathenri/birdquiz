@@ -62,7 +62,7 @@ class App extends Component {
         <div className="content-container center-block">
           <Image src={require(`${this.state.currentBirdImageFilePath}`)} responsive />
         </div>
-        <div className="content-container center-block">
+        <div className="form-container center-block">
           <Form inline onSubmit={this.handleSubmit}>
             <FormGroup controlId="answerControl">
               <ControlLabel>Answer:</ControlLabel>{' '}
@@ -74,6 +74,11 @@ class App extends Component {
             <Button type="submit" bsStyle="success">Submit</Button>
           </Form>
         </div>
+
+        <hr />
+        <footer>
+          <p>&copy; Mattias Henriksson 2018</p>
+        </footer>
       </div>
     );
   }
