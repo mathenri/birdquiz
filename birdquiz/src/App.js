@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Jumbotron, Button, Image, FormGroup, FormControl, ControlLabel, Form} from 'react-bootstrap';
+import {Jumbotron, Button, Image, FormGroup, FormControl, ControlLabel, Form, 
+        Grid, Row, Col} from 'react-bootstrap';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 import imageFilePaths from './image-file-names.json';
@@ -13,12 +14,26 @@ class App extends Component {
       usersAnswer: '',
       correctAnswer: 'Storlom',
       currentBirdImageFilePath: './images/first.png',
-      nrCorrectAnswers: 0
+      nrCorrectAnswers: 0,
+      time: 0
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.genereateNewBird = this.genereateNewBird.bind(this);
+    this.startNewQuiz = this.startNewQuiz.bind(this);
+    this.timerTick = this.timerTick.bind(this);
+  }
+
+  startNewQuiz() {
+    setInterval(this.timerTick, 1000);
+    this.genereateNewBird();
+  }
+
+  timerTick() {
+    this.setState({
+      time: this.state.time + 1
+    });
   }
 
   handleChange(e) {
@@ -60,18 +75,28 @@ class App extends Component {
   render() {
 
     return (
-      <div className="container">
+      <Grid>
         <Jumbotron>
           <h1>Fågelquiz</h1>
           <p>Välkommen till Fågelquiz! Arta fåglar och få poäng.</p>
           <p>
-            <Button bsStyle="primary" onClick={this.genereateNewBird}>Starta quiz</Button>
+            <Button bsStyle="primary" onClick={this.startNewQuiz}>Starta quiz</Button>
           </p>
         </Jumbotron>
-        <div className="content-container center-block">
+
+        <Row>
+          <Col md={6}>
+            <h1>{this.state.time}</h1>
+          </Col>
+          <Col md={6}>
+            <h1 className="pull-right">Antal rätt: {this.state.nrCorrectAnswers}</h1>
+          </Col>
+        </Row>
+
+        <Row className="content-container center-block">
           <Image src={require(`${this.state.currentBirdImageFilePath}`)} responsive />
-        </div>
-        <div className="form-container center-block">
+        </Row>
+        <Row className="form-container center-block">
           <Form inline onSubmit={this.handleSubmit}>
             <FormGroup controlId="answerControl">
               <ControlLabel>Svar:</ControlLabel>{' '}
@@ -82,16 +107,15 @@ class App extends Component {
             </FormGroup>{' '}
             <Button type="submit" bsStyle="success">OK</Button>
           </Form>
-        </div>
-        <div>
-          Antal rätt: {this.state.nrCorrectAnswers}
-        </div>
-
-        <hr />
-        <footer>
-          <p>&copy; Mattias Henriksson 2018</p>
-        </footer>
-      </div>
+        </Row>
+        
+        <Row>
+          <hr />
+          <footer>
+            <p>&copy; Mattias Henriksson 2018</p>
+          </footer>
+          </Row>
+      </Grid>
     );
   }
 }
