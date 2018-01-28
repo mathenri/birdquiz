@@ -73,6 +73,20 @@ class App extends Component {
     }
   }
 
+  formatTime(seconds) {
+    const min = Math.floor(seconds/60);
+    const sec = seconds % 60;
+    let minStr = min;
+    if (min / 10 < 1) {
+        minStr = "0" + minStr;
+    }
+    let secStr = sec;
+    if (sec / 10 < 1) {
+        secStr = "0" + secStr;
+    }
+    return minStr + ":" + secStr;
+  }
+
   render() {
 
     return (
@@ -91,10 +105,10 @@ class App extends Component {
 
         <div className="row" id="game-top">
           <div className="col-sm-6">
-            <h1>{this.state.time}</h1>
+            <h1>{this.formatTime(this.state.time)}</h1>
           </div>
           <div className="col-sm-6">
-            <h1 className="pull-right">Antal rätt: {this.state.nrCorrectAnswers}</h1>
+            <h1 className="pull-right">{this.state.nrCorrectAnswers}</h1>
           </div>
         </div>
 
