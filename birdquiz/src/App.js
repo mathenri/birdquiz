@@ -27,6 +27,7 @@ class App extends Component {
 
   startNewQuiz() {
     document.getElementById('game-top').scrollIntoView();
+    alert("Quizet startar nu");
     setInterval(this.timerTick, 1000);
     this.genereateNewBird();
   }
@@ -60,7 +61,7 @@ class App extends Component {
 
   genereateNewBird() {
     if (imageFilePaths.length === 0) {
-      alert("Quizet är klart!");
+      alert(`Quizet är klart!\nAntal rätt: ${this.state.nrCorrectAnswers}\nTid: ${this.formatTime(this.state.time)}"`);
     } else {
       const nextBirdIndex = Math.floor(Math.random() * imageFilePaths.length);
       const nextBird = imageFilePaths.splice(nextBirdIndex, 1)[0];
