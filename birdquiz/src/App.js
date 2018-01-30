@@ -6,6 +6,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 import imageFilePaths from './image-file-names.json';
 import BirdQuizJumbotron from "./BirdQuizJumbotron";
+import ResponseForm from "./ResponseForm";
 
 class App extends Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class App extends Component {
 
   genereateNewBird() {
     if (imageFilePaths.length === 0) {
-      alert(`Quizet är klart!\nAntal rätt: ${this.state.nrCorrectAnswers}\nTid: ${this.formatTime(this.state.time)}"`);
+      alert(`Quizet är klart!\nAntal rätt: ${this.state.nrCorrectAnswers}\nTid: ${this.formatTime(this.state.time)}`);
     } else {
       const nextBirdIndex = Math.floor(Math.random() * imageFilePaths.length);
       const nextBird = imageFilePaths.splice(nextBirdIndex, 1)[0];
@@ -115,16 +116,9 @@ class App extends Component {
         </div>
         <div className="row form-container center-block">
           <div className="col">
-            <Form inline onSubmit={this.handleSubmit}>
-              <FormGroup controlId="answerControl">
-                <ControlLabel>Svar:</ControlLabel>{' '}
-                <FormControl type="text"
-                  value={this.state.usersAnswer} 
-                  placeholder="Fågelnamn"
-                  onChange={this.handleChange}/>
-              </FormGroup>{' '}
-              <Button type="submit" bsStyle="success">OK</Button>
-            </Form>
+            <ResponseForm handleSubmit={this.handleSubmit} 
+                          usersAnswer={this.state.usersAnswer} 
+                          handleChange={this.handleChange} />
           </div>
         </div>
         
