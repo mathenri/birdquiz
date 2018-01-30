@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Jumbotron, Button, Image, FormGroup, FormControl, ControlLabel, Form, 
+import {Button, Image, FormGroup, FormControl, ControlLabel, Form, 
         Grid, Row, Col, Nav, Navbar, NavItem} from 'react-bootstrap';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 import imageFilePaths from './image-file-names.json';
+import BirdQuizJumbotron from "./BirdQuizJumbotron";
 
 class App extends Component {
   constructor(props) {
@@ -94,13 +95,7 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col">
-            <Jumbotron>
-              <h1>Fågelquiz</h1>
-              <p>Välkommen till Fågelquiz! Arta fåglar och få poäng.</p>
-              <p>
-                <Button bsStyle="primary" onClick={this.startNewQuiz}>Starta quiz</Button>
-              </p>
-            </Jumbotron>
+            <BirdQuizJumbotron startNewQuiz={this.startNewQuiz}/>
           </div>
         </div>
 
