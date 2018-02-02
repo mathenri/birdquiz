@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Button, Image, FormGroup, FormControl, ControlLabel, Form, 
-        Grid, Row, Col, Nav, Navbar, NavItem} from 'react-bootstrap';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 import imageFilePaths from './image-file-names.json';
-import BirdQuizJumbotron from "./BirdQuizJumbotron";
-import ResponseForm from "./ResponseForm";
+import Header from "./Header";
+import Main from "./Main";
 
 class App extends Component {
   constructor(props) {
@@ -77,50 +75,33 @@ class App extends Component {
   }
 
   formatTime(seconds) {
-    const min = Math.floor(seconds/60);
-    const sec = seconds % 60;
-    let minStr = min;
-    if (min / 10 < 1) {
-        minStr = "0" + minStr;
-    }
-    let secStr = sec;
-    if (sec / 10 < 1) {
-        secStr = "0" + secStr;
-    }
-    return minStr + ":" + secStr;
+      const min = Math.floor(seconds/60);
+      const sec = seconds % 60;
+      let minStr = min;
+      if (min / 10 < 1) {
+          minStr = "0" + minStr;
+      }
+      let secStr = sec;
+      if (sec / 10 < 1) {
+          secStr = "0" + secStr;
+      }
+      return minStr + ":" + secStr;
   }
 
   render() {
-
     return (
       <div className="container">
-        <div className="row">
-          <div className="col">
-            <BirdQuizJumbotron startNewQuiz={this.startNewQuiz}/>
-          </div>
-        </div>
 
-        <div className="row" id="game-top">
-          <div className="col-sm-6">
-            <h1>{this.formatTime(this.state.time)}</h1>
-          </div>
-          <div className="col-sm-6">
-            <h1 className="pull-right">{this.state.nrCorrectAnswers}</h1>
-          </div>
-        </div>
+        <Header />
 
-        <div className="row content-container center-block">
-          <div className="col">
-            <Image src={require(`${this.state.currentBirdImageFilePath}`)} responsive />
-          </div>
-        </div>
-        <div className="row form-container center-block">
-          <div className="col">
-            <ResponseForm handleSubmit={this.handleSubmit} 
-                          usersAnswer={this.state.usersAnswer} 
-                          handleChange={this.handleChange} />
-          </div>
-        </div>
+        <Main startNewQuiz={this.startNewQuiz}
+                time={this.state.time} 
+                nrCorrectAnswers={this.state.nrCorrectAnswers}
+                currentBirdImageFilePath={this.state.currentBirdImageFilePath}
+                handleSubmit={this.handleSubmit}
+                usersAnswer={this.state.usersAnswer}
+                handleChange={this.handleChange}
+                formatTime={this.formatTime} />
         
         <div className="row">
           <div className="col">
