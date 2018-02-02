@@ -15,7 +15,8 @@ class App extends Component {
       correctAnswer: 'Storlom',
       currentBirdImageFilePath: './images/first.png',
       nrCorrectAnswers: 0,
-      time: 0
+      time: 0,
+      highscore: [{name: 'Mattias', score: 23}]
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,6 +24,7 @@ class App extends Component {
     this.genereateNewBird = this.genereateNewBird.bind(this);
     this.startNewQuiz = this.startNewQuiz.bind(this);
     this.timerTick = this.timerTick.bind(this);
+    this.quizDone = this.quizDone.bind(this);
   }
 
   startNewQuiz() {
@@ -61,7 +63,7 @@ class App extends Component {
 
   genereateNewBird() {
     if (imageFilePaths.length === 0) {
-      alert(`Quizet är klart!\nAntal rätt: ${this.state.nrCorrectAnswers}\nTid: ${this.formatTime(this.state.time)}`);
+      this.quizDone()
     } else {
       const nextBirdIndex = Math.floor(Math.random() * imageFilePaths.length);
       const nextBird = imageFilePaths.splice(nextBirdIndex, 1)[0];
@@ -72,6 +74,18 @@ class App extends Component {
         currentBirdImageFilePath: nextBird.imageFilePath
       });
     }
+  }
+
+  quizDone() {
+    alert(`Quizet är klart!\nAntal rätt: ${this.state.nrCorrectAnswers}\nTid: ${this.formatTime(this.state.time)}`);
+    const playerScore = this.state.nrCorrectAnswers;
+    const playerName = 'Mattias';
+    let newHighScore = this.state.highscore;
+    newHighScore.push({name: playerName, score: playerScore});
+    this.setState({
+      highscore: newHighScore
+    });
+    console.log(this.state.highscore);
   }
 
   formatTime(seconds) {
