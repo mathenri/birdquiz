@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Image} from 'react-bootstrap';
-import BirdQuizJumbotron from './BirdQuizJumbotron';
 import ResponseForm from './ResponseForm';
 
 class Quiz extends Component {
@@ -8,13 +7,7 @@ class Quiz extends Component {
 	render() {
 		return (
 			<div>
-				<div className="row">
-		          <div className="col">
-		            <BirdQuizJumbotron startNewQuiz={this.props.startNewQuiz}/>
-		          </div>
-		        </div>
-
-		        <div className="row" id="game-top">
+		        <div className="row">
 		          <div className="col-sm-6">
 		            <h1>{this.props.formatTime(this.props.time)}</h1>
 		          </div>

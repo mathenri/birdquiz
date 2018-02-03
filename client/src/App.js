@@ -28,7 +28,6 @@ class App extends Component {
   }
 
   startNewQuiz() {
-    document.getElementById('game-top').scrollIntoView();
     alert("Quizet startar nu");
     setInterval(this.timerTick, 1000);
     this.genereateNewBird();

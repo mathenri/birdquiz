@@ -10,10 +10,13 @@ class Header extends Component {
 	            <Navbar inverse>
 	              <Nav>
 	                <LinkContainer exact to="/">
-	                  <NavItem eventKey={1}>Quiz</NavItem>
+	                  <NavItem eventKey={1}>Home</NavItem>
+	                </LinkContainer>
+	                <LinkContainer to="/Quiz">
+	                  <NavItem eventKey={2}>Quiz</NavItem>
 	                </LinkContainer>
 	                <LinkContainer to="/highscore">
-	                  <NavItem eventKey={2}>Highscore</NavItem>  
+	                  <NavItem eventKey={3}>Highscore</NavItem>  
 	                </LinkContainer>
 	              </Nav>
 	            </Navbar>
