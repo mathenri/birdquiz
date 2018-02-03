@@ -18,7 +18,7 @@ class Main extends Component {
 							      	  						   formatTime={this.props.formatTime} />}
 				/>
 	      	  <Route path="/highscore" 
-	      	  		 render={(props) => <Highscore {...props} letter="M" />} 
+	      	  		 render={(props) => <Highscore {...props} highscore={this.props.highscore} />} 
 	      	    />
 	        </Switch>
 	    );

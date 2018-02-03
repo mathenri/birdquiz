@@ -115,7 +115,8 @@ class App extends Component {
                 handleSubmit={this.handleSubmit}
                 usersAnswer={this.state.usersAnswer}
                 handleChange={this.handleChange}
-                formatTime={this.formatTime} />
+                formatTime={this.formatTime}
+                highscore={this.state.highscore} />
         
         <div className="row">
           <div className="col">

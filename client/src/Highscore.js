@@ -8,11 +8,8 @@ class Highscore extends Component {
 				<div className="col">
 					<h1>Highscore</h1>
 					<ListGroup>
-						<ListGroupItem>Mattias - 50 p</ListGroupItem>
-						<ListGroupItem>Annika - 38 p</ListGroupItem>
-						<ListGroupItem>Mats - 30 p</ListGroupItem>
-						<ListGroupItem>Anna - 29 p</ListGroupItem>
-						<ListGroupItem>Klara - 27 p</ListGroupItem>
+						{this.props.highscore.map((item, i) => 
+							<ListGroupItem key={i}>{item.name} - {item.score}</ListGroupItem>)}
 					</ListGroup>
 				</div>
 			</div>
