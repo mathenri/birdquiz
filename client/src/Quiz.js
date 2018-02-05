@@ -1,12 +1,25 @@
 import React, {Component} from 'react';
-import {Image} from 'react-bootstrap';
+import {Image, Modal, Button} from 'react-bootstrap';
 import ResponseForm from './ResponseForm';
 import './Quiz.css';
 
 class Quiz extends Component {
+
 	render() {
 		return (
 			<div>
+				<Modal show={this.props.showQuizModal} onHide={this.props.continueQuiz}>
+					<Modal.Header closeButton>
+						<Modal.Title>Rätt!</Modal.Title>
+          			</Modal.Header>
+          			<Modal.Body>
+          				Rätt svarat! Snyggt!
+          			</Modal.Body>
+          			<Modal.Footer>
+		            	<Button onClick={this.props.continueQuiz}>OK</Button>
+		          	</Modal.Footer>
+				</Modal>
+
 				<div className="row">
 		          <div className="col-sm-6">
 		            <h1>{this.props.formatTime(this.props.time)}</h1>
