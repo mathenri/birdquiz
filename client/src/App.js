@@ -16,7 +16,8 @@ class App extends Component {
       currentBirdImageFilePath: './images/first.png',
       nrCorrectAnswers: 0,
       time: 0,
-      highscore: [{name: 'Mattias', score: 23}]
+      highscore: [{name: 'Mattias', score: 23}],
+      isQuizHidden: true
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,8 +29,10 @@ class App extends Component {
   }
 
   startNewQuiz() {
-    alert("Quizet startar nu");
     setInterval(this.timerTick, 1000);
+    this.setState({
+      isQuizHidden: !this.state.isQuizHidden
+    });
     this.genereateNewBird();
   }
 
@@ -115,7 +118,9 @@ class App extends Component {
                 usersAnswer={this.state.usersAnswer}
                 handleChange={this.handleChange}
                 formatTime={this.formatTime}
-                highscore={this.state.highscore} />
+                highscore={this.state.highscore}
+                startNewQuiz={this.startNewQuiz}
+                isQuizHidden={this.state.isQuizHidden} />
         
         <div className="row">
           <div className="col">
