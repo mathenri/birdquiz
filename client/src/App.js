@@ -12,6 +12,16 @@ class App extends Component {
     this.state = {
       highscore: [{name: 'Mattias', score: 23}],
     };
+
+    this.setScore = this.setScore.bind(this);
+  }
+
+  setScore(score) {
+    let newHighScore = this.state.highscore;
+    newHighScore.push(score);
+    this.setState({
+      highscore: newHighScore
+    });
   }
 
   render() {
@@ -19,7 +29,8 @@ class App extends Component {
       <div className="container">
 
         <Header />
-        <Main highscore={this.state.highscore} />
+        <Main highscore={this.state.highscore}
+              setScore={this.setScore} />
         
         <div className="row">
           <div className="col">

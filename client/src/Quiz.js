@@ -16,7 +16,7 @@ class Quiz extends Component {
           				Rätt svarat! Snyggt!
           			</Modal.Body>
           			<Modal.Footer>
-		            	<Button onClick={this.props.continueQuiz}>OK</Button>
+		            	<Button bsStyle="primary" onClick={this.props.continueQuiz}>OK</Button>
 		          	</Modal.Footer>
 				</Modal>
 

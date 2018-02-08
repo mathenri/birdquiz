@@ -9,7 +9,9 @@ class Main extends Component {
 		return (
 			<Switch>
 			  <Route exact path="/" component={Home} />
-	      	  <Route path="/quiz" component={QuizPage} />
+	      	  <Route path="/quiz" 
+	      	  		 render={(props) => <QuizPage {...props} setScore={this.props.setScore} />} 
+	      	    />
 	      	  <Route path="/highscore" 
 	      	  		 render={(props) => <Highscore {...props} highscore={this.props.highscore} />} 
 	      	    />

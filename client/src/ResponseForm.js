@@ -4,7 +4,7 @@ import {Form, FormGroup, ControlLabel, FormControl, Button} from 'react-bootstra
 class ResponseForm extends Component {
 	render() {
 		return (
-			<Form inline onSubmit={this.props.handleSubmit} autocomplete="off">
+			<Form inline onSubmit={this.props.handleSubmit} autoComplete="off">
       	<FormGroup controlId="answerControl">
         	<FormControl type="text"
                   		 value={this.props.usersAnswer} 
