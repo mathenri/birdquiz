@@ -11,10 +11,18 @@ class App extends Component {
     super();
 
     this.state = {
-      highscore: [{name: 'Mattias', score: 23}],
+      highscore: [
+        {
+          name: 'Mattias',
+          score: 23,
+          time: 200,
+          date: new Date()
+        }
+      ],
     };
 
     this.setScore = this.setScore.bind(this);
+    this.formatTime = this.formatTime.bind(this);
   }
 
   setScore(score) {
@@ -25,13 +33,28 @@ class App extends Component {
     });
   }
 
+  formatTime(seconds) {
+    const min = Math.floor(seconds/60);
+    const sec = seconds % 60;
+    let minStr = min;
+    if (min / 10 < 1) {
+        minStr = "0" + minStr;
+    }
+    let secStr = sec;
+    if (sec / 10 < 1) {
+        secStr = "0" + secStr;
+    }
+    return minStr + ":" + secStr;
+  }
+
   render() {
     return (
       <div className="container">
 
         <Header />
         <Main highscore={this.state.highscore}
-              setScore={this.setScore} />
+              setScore={this.setScore}
+              formatTime={this.formatTime} />
         
         <Footer />
       </div>

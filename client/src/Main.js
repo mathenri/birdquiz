@@ -10,10 +10,14 @@ class Main extends Component {
 			<Switch>
 			  <Route exact path="/" component={Home} />
 	      	  <Route path="/quiz" 
-	      	  		 render={(props) => <QuizPage {...props} setScore={this.props.setScore} />} 
+	      	  		 render={(props) => <QuizPage {...props} 
+	      	  		 	setScore={this.props.setScore}
+	      	  		 	formatTime={this.props.formatTime} />} 
 	      	    />
 	      	  <Route path="/highscore" 
-	      	  		 render={(props) => <Highscore {...props} highscore={this.props.highscore} />} 
+	      	  		 render={(props) => <Highscore {...props} 
+	      	  		 	highscore={this.props.highscore}
+	      	  		 	formatTime={this.props.formatTime} />} 
 	      	    />
 	        </Switch>
 	    );
