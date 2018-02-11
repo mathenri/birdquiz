@@ -12,7 +12,7 @@ class Header extends Component {
 	                <LinkContainer exact to="/">
 	                  <NavItem eventKey={1}>Home</NavItem>
 	                </LinkContainer>
-	                <LinkContainer to="/Quiz">
+	                <LinkContainer to="/quiz">
 	                  <NavItem eventKey={2}>Quiz</NavItem>
 	                </LinkContainer>
 	                <LinkContainer to="/highscore">

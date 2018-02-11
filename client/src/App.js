@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 import Header from "./Header";
 import Main from "./Main";
+import Footer from "./Footer";
 
 class App extends Component {
   constructor() {
@@ -32,14 +33,7 @@ class App extends Component {
         <Main highscore={this.state.highscore}
               setScore={this.setScore} />
         
-        <div className="row">
-          <div className="col">
-            <hr />
-            <footer>
-              <p>&copy; Mattias Henriksson 2018</p>
-            </footer>
-          </div>
-        </div>
+        <Footer />
       </div>
     );
   }

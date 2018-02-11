@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Image, Button} from 'react-bootstrap';
 import ResponseForm from './ResponseForm';
 import QuizAnswerModal from './QuizAnswerModal';
+import QuizDoneModal from './QuizDoneModal';
 
 import './Quiz.css';
 
@@ -10,10 +11,15 @@ class Quiz extends Component {
 	render() {
 		return (
 			<div>
-				<QuizAnswerModal showQuizModal={this.props.showQuizModal}
+				<QuizAnswerModal showQuizAnswerModal={this.props.showQuizAnswerModal}
 								 continueQuiz={this.props.continueQuiz}
-								 modalTitle={this.props.modalTitle}
-								 modalBody={this.props.modalBody} />
+								 answerModalTitle={this.props.answerModalTitle}
+								 answerModalBody={this.props.answerModalBody} />
+
+				<QuizDoneModal  showQuizDoneModal={this.props.showQuizDoneModal}
+								registerScore={this.props.registerScore}
+								nrCorrectAnswers={this.props.nrCorrectAnswers}
+								time={this.props.time} />
 
 				<div className="row">
 		          <div className="col-sm-6">
